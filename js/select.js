@@ -36,21 +36,25 @@ window.onload=function(){
 		for(var i=0;i<data.basic.explains.length;i++){
 			insert = insert + `<p style="text-align:left">${data.basic.explains[i]}</p>` ;
 		};
-		var explainToast = `<div class="pop" style="background-color:white;border:solid 1px #bdbdbd;border-radius:3px;padding:5px;width:200px;">
+		var explainToast = `<div class="pop" style="background-color:white;border:solid 1px #bdbdbd;border-radius:3px;padding:5px;width:200px;text-align: center;font-size:14px">
 			<p style="text-align:left;font-weight:bold">翻译：<span>${data.translation}</span></p>
 			<p style="text-align:left;font-weight:bold">音标： <span>[${data.basic.phonetic}]</span></p>
 			<p style="text-align:left;font-weight:bold">详细：</p>
 			${insert}
 			<p></p>
-			<a href="https://cn.bing.com/dict/search?q=${data.query}" target="_blank">bing词典</a>
-			<a href="https://www.collinsdictionary.com/dictionary/english-chinese/${data.query}" target="_blank">柯林斯在线</a>
+			<a href="https://cn.bing.com/dict/search?q=${data.query}" target="_blank">●Bing词典</a>
+			<a href="https://www.collinsdictionary.com/dictionary/english-chinese/${data.query}" target="_blank">●柯林斯在线</a>
 			<p></p>
-			<button class="push" style="margin-top:10px;cursor:pointer">Push to My Bowl</button>
+			<button class="push" style="margin-top:10px;cursor:pointer;border-radius:3px;background-color:black;color:white;padding:0 10px;">Push to My Bowl</button>
 		</div>`;
 		$('body').append(explainToast);
 		$('.pop').css('position','absolute');
 		$('.pop').css('top',top);
-		$('.pop').css('left',left);
+		$('.pop').css('left',left);dd
+		// 处理单词存储
+		$('.push').click{function(){
+			chrome.storage.sync.set({data.query: data.translation},
+		}}
 	}
 
     document.onmouseup=function(ev){
