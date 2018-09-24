@@ -1,3 +1,5 @@
+var currentWord = '';
+
 window.onload=function(){
 	var left = '';
 	var top = '';
@@ -34,12 +36,12 @@ window.onload=function(){
 		var data = JSON.parse(res);
 		var insert = ``;
 		for(var i=0;i<data.basic.explains.length;i++){
-			insert = insert + `<p style="text-align:left">${data.basic.explains[i]}</p>` ;
+			insert = insert + `<p style="text-align:left;margin:0">${data.basic.explains[i]}</p>` ;
 		};
 		var explainToast = `<div class="pop" style="background-color:white;border:solid 1px #bdbdbd;border-radius:3px;padding:5px;width:200px;text-align: center;font-size:14px">
-			<p style="text-align:left;font-weight:bold">翻译：<span>${data.translation}</span></p>
-			<p style="text-align:left;font-weight:bold">音标： <span>[${data.basic.phonetic}]</span></p>
-			<p style="text-align:left;font-weight:bold">详细：</p>
+			<p style="text-align:left;font-weight:bold;margin:0">翻译：<span>${data.translation}</span></p>
+			<p style="text-align:left;font-weight:bold;margin:0">音标： <span>[${data.basic.phonetic}]</span></p>
+			<p style="text-align:left;font-weight:bold;margin:0">详细：</p>
 			${insert}
 			<p></p>
 			<a href="https://cn.bing.com/dict/search?q=${data.query}" target="_blank">●Bing词典</a>
@@ -50,11 +52,20 @@ window.onload=function(){
 		$('body').append(explainToast);
 		$('.pop').css('position','absolute');
 		$('.pop').css('top',top);
-		$('.pop').css('left',left);dd
+		$('.pop').css('left',left);
+		
+		console.log(chrome.storage.local.get("rico",function(){}));
+		console.log(chrome.storage.local.get);
 		// 处理单词存储
-		$('.push').click{function(){
-			chrome.storage.sync.set({data.query: data.translation},
-		}}
+		currentWord = data.query;
+		$('.push').click(function(){
+			objImg.style.display='none';	
+			var oldwordlist = chrome.storage.local.get("rico",function(){}) || [];
+			oldwordlist.push(currentWord);
+			console.log(oldwordlist);
+			chrome.storage.local.set({"rico":oldwordlist},function(){});
+
+		})
 	}
 
     document.onmouseup=function(ev){
