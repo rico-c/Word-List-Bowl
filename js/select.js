@@ -22,6 +22,10 @@ window.onload=function(){
     // 获取单词数据
     function getClickHandler() {
 	    var ajax = new XMLHttpRequest();
+	    var select = selectText();
+	    if(select.length<=1){
+	    	return false;
+	    };
 	    ajax.open('get','https://fanyi.youdao.com/openapi.do?keyfrom=youdaoci&key=694691143&type=data&doctype=json&version=1.1&q='+ selectText());
 	    ajax.send();
 	    ajax.onreadystatechange = function () {
@@ -53,18 +57,26 @@ window.onload=function(){
 		$('.pop').css('position','absolute');
 		$('.pop').css('top',top);
 		$('.pop').css('left',left);
-		
-		console.log(chrome.storage.local.get("rico",function(){}));
-		console.log(chrome.storage.local.get);
+	
 		// 处理单词存储
 		currentWord = data.query;
 		$('.push').click(function(){
-			objImg.style.display='none';	
-			var oldwordlist = chrome.storage.local.get("rico",function(){}) || [];
-			oldwordlist.push(currentWord);
-			console.log(oldwordlist);
-			chrome.storage.local.set({"rico":oldwordlist},function(){});
-
+			objImg.style.display='none';
+			var oldwordlist = {
+				"rico":[]
+			};
+			chrome.storage.local.get("rico",function(res){
+				if(JSON.stringify(res)=='{}'){
+					oldwordlist = []
+				}else{
+					oldwordlist = res.rico;
+				}
+				
+				console.log(oldwordlist);
+				oldwordlist.push(currentWord);
+				chrome.storage.local.set({"rico":oldwordlist},function(){
+				});
+			});	
 		})
 	}
 
@@ -74,7 +86,7 @@ window.onload=function(){
     	top  = ev.clientY + $(document).scrollTop();
 	    	
 	    setTimeout(function(){
-		    if(selectText().length>0){
+		    if(selectText().length>1){
 			    setTimeout(function(){
 				    objImg.style.display='block';
 				    objImg.style.left = left+'px'; 

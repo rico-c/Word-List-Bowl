@@ -2,29 +2,61 @@
 	<head>
 		<style>
 			body{
-				width:300px;
+				width:100%;
 			}
 			.topwrapper{
 				width: 100%;
 				height: 50px;
 				text-align: center;
+				margin-top: 15px;
 			}
 			.top{
 				width: 70px;
 				height: 25px;
 			}
-			.main{
-				display: flex;
-				align-items:center;
+			.title{
+				text-align: center;
+				font-size: 16px;
+				margin:0 0 50px 0!important;
+			}
+			.wordlistItem{
+				width: 300px;
+				margin:0 auto;
+				font-size: 14px;
+				text-align: left;
+				padding:5px 0;
+				border-bottom: 1px #bdbdbd dashed;
+			}
+			.remove{
+				float: right;
+			}
+			.button{
+				float:right;
+			}
+			.btn{
+				padding:2px 5px !important;;
 			}
 		</style>
+		<link rel="stylesheet" href="bootstrap.css">
 	</head>
 	<body>
 		<div class="topwrapper"><img src="img/toplogo.jpg" class="top"></div>
+		<p class="title"> <b>Word List</b></p>
 		<div class="main">
 			
 		</div>
+
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <div class="modal-dialog modal-sm" role="document">
+		    <div class="modal-content">
+		      	
+		    </div>
+		  </div>
+		</div>
+
 		<script src="js/jquery.js"></script>
-		<script src="js/check.js"></script>
+		<script src="js/cook.js"></script>
+		<script src="js/axios.js"></script>
+		<script src="js/bootstrap.js"></script>
 	</body>
 </html>

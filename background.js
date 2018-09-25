@@ -10,14 +10,14 @@ function getClickHandler() {
     ajax.send();
     ajax.onreadystatechange = function () {
        if (ajax.readyState==4 &&ajax.status==200) {
-    　　　　alert(ajax.responseText);
+    　　　　alert(JSON.parse(ajax.responseText).translation);
       　　}
     }
   };
 };
 
 chrome.contextMenus.create({
-  "title" : "Push it to my Bowl",
+  "title" : "Check Explain",
   "type" : "normal",
   "contexts" : ["all"],
   "onclick" : getClickHandler()
