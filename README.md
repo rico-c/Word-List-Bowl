@@ -1,4 +1,4 @@
-<p>Word-List-Bowl<p>
+<h1 align="center">Word-List-Bowl<h1>
 Rico单词本🤔一个支持柯林斯&amp;bing查询，同时可以将网页中的生词记录到单词本的chrome插件
 
 ### 功能
