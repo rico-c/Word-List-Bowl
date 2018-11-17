@@ -11,10 +11,10 @@ Rico单词本🤔一个支持柯林斯&amp;bing查询，同时可以将网页中
 - 支持右键直接查询单词释义
 
 ### 产品截图
-https://ricardocao-biker.github.io/IMGS/wl1.jpg
-https://ricardocao-biker.github.io/IMGS/wl2.jpg
-https://ricardocao-biker.github.io/IMGS/wl3.jpg
-https://ricardocao-biker.github.io/IMGS/wl4.jpg
+![1](https://ricardocao-biker.github.io/IMGS/wl1.jpg)
+![1](https://ricardocao-biker.github.io/IMGS/wl2.jpg)
+![1](https://ricardocao-biker.github.io/IMGS/wl3.jpg)
+![1](https://ricardocao-biker.github.io/IMGS/wl4.jpg)
 
 ### 安装
 在chrome地址栏中输入 https://chrome.google.com/webstore/search/rico单词本 并点击安装
